@@ -2,11 +2,40 @@
 <html lang="en">
 
     <head>
-        <title> Placeholder name quiz</title>
+        <title> Josh's Javascript Quiz</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-       <!-- <link rel="stylesheet" href="./assets/css/reset.css"/> -->
+        <link rel="stylesheet" href="./assets/css/reset.css"/>
         <link rel="stylesheet" href="assets/css/style.css"/>
     </head>
-    <body>
 
+    <body>
+        <!--This will be the initial screen that users see, on startbtn press, will hide this section and show questions -->
+        <div class= "startscreen"> 
+            <div class = startcontent> 
+            <h1> Josh's Coding Quiz</h1>
+                <p> Hi! This quiz was created so I could showcase how much I've learned so far as a webdeveloper, as well as to help others learn! </p>
+                <p> Try to answer all questions within the time limit. Correct answers earn you points, wrong answers only deduct time. Good luck!</p>
+            <button id= "startbtn" class="btn"> Start Quiz</button>
+            <button id="scorebtn" class="btn"> View Leaderboard &#127942</button>
+            </div>
+        </div>
+
+        <main class="quizMain"> <!--I learned about SEO during my day job, was taught main helps with that-->
+            <div class="quizDiv"></div>
+        </main>
+
+
+    <script src="./assets/js/script.js"> </script>
+    </body>
+</html>
+
+
+<!--Pseduo Code for Reference 
+1- HTML for site layout 
+1.5 OPTIONAL* - Try (for fun) to create 2 html files and link together, one for a "home page" the other for the "quiz" 
+2- Style pages with css (if needed, create 2 css files, one for home page one for quiz game)
+3 - Add logic using js 
+3.5 OPTIONAL* - Create second js file to store questions, saw something similar in a practice game I was researching on making and makes more sense than putting everyone in one js file
+4 - Ensure timer works with penalty
+5 - Ensure User history/scoreboard works to store name and score -->

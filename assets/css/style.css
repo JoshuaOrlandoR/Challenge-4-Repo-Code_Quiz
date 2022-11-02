@@ -1,0 +1,75 @@
+:root {
+    --background: #201a1a;
+    --textOuter:#FFE2FF;
+    --textInner: white;
+}
+
+
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family:Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    font-size: 65%; /* Learned to easily manipulate font sizes using rem instead of pixels*/
+}
+
+body {
+    background-image:radial-gradient(circle, rgba(132,115,134,1) 3%, rgba(3,2,2,1) 87%);
+    text-align: center;
+}
+
+/* startscreen container styling */
+.startscreen {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+h1 {
+    font-size: 4rem;
+    margin: 1.85rem;
+    /* Discovered this in a tutorial, implementing to see how it looks*/
+    color: #e4ede5;
+    background-image: -webkit-linear-gradient(180deg, #e4ede5 0%, #7fb58f 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.startscreen p {
+    font-size: 1.8rem;
+    margin: 0.7rem;
+    color: var(--textOuter)
+}
+
+#startbtn {
+    background-image: linear-gradient(to bottom, #14253f, #203253, #2c4068, #3a4e7e, #495d94);
+}
+
+#scorebtn {
+    background-image: linear-gradient(to bottom, #410c6b, #542881, #664098, #7958af, #8d70c6);
+}
+
+.btn {
+    background-color: var(--background);
+    margin: 0.75rem;
+    color: var(--textInner);
+    font-size: 2rem;
+    padding: 0.85rem;
+    width: 25rem;
+    border-radius: 18px;
+    border-color: #FFE2FF;
+    
+}
+
+.btn:hover {
+    cursor: pointer;
+    box-shadow: 0.3rem 0.4rem 0.4rem 0 rgba(226, 229, 232, 0.6);
+    transform:scale(1.1);
+    transition-duration: 200ms;
+
+}
