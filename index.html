@@ -12,7 +12,7 @@
     <body>
         <!--This will be the initial screen that users see, on startbtn press, will hide this section and show questions -->
         <div class= "startscreen"> 
-            <div class = startcontent> 
+            <div class = "startcontent"> <!--REMOVE IS JUST HERE BY DEFAULT SO I CAN STYLE THE OTHER SECTIONS, REMEMBER TO REMOVE-->
             <h1> Josh's Coding Quiz</h1>
                 <p> Hi! This quiz was created so I could showcase how much I've learned so far as a webdeveloper, as well as to help others learn! </p>
                 <p> Try to answer all questions within the time limit. Correct answers earn you points, wrong answers only deduct time. Good luck!</p>
@@ -21,10 +21,46 @@
             </div>
         </div>
 
-        <main class="quizMain"> <!--I learned about SEO during my day job, was taught main helps with that-->
-            <div class="quizDiv"></div>
-        </main>
+        <!--Questions/Quiz section-->
+        <div class="quizScreen">  
+            <div class="quizContent remove"> <!-- Hide by default with .remove class, remove that class when start button is pressed -->
+                <div class="quizStats">
+                    <div class="quizItem">
+                        <h3 id="timeLeft"> Time Remaining: </h3>
+                    </div>
+                    <div class="quizItem">
+                        <h3 id="score"> Score:</h3>
+                        <h3 id="scoreValue"> 0</h3>
+                    </div>
+                </div>
+                <div id="questionBox">
+                    <h2 id="question"> QUESTION HERE</h2>
+                </div>
+                <div class="questionOption" id="optionOne">
+                    <p class="optionLetter"> A </p>
+                    <p class="optionText" data-number="1"> TEXT FOR CHOICE GOES HERE</p>
+                </div>
+                <div class="questionOption" id="optionTwo">
+                    <p class="optionLetter"> B </p>
+                    <p class="optionText" data-number="2"> TEXT FOR CHOICE GOES HERE</p>
+                </div>
+                <div class="questionOption" id="optionThree">
+                    <p class="optionLetter"> C </p>
+                    <p class="optionText" data-number="3"> TEXT FOR CHOICE GOES HERE</p>
+                </div>
+                <div class="questionOption" id="optionFour">
+                    <p class="optionLetter"> D </p>
+                    <p class="optionText" data-number="4"> TEXT FOR CHOICE GOES HERE</p>
+                </div>
+            </div>
+        </div>
+        
+        <!--Enter Name + Score keeper section-->
+        <div>
 
+        </div>
+
+        <!--Leaderboard section-->
 
     <script src="./assets/js/script.js"> </script>
     </body>
