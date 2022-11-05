@@ -15,7 +15,7 @@
             <div class = "startcontent"> <!--REMOVE IS JUST HERE BY DEFAULT SO I CAN STYLE THE OTHER SECTIONS, REMEMBER TO REMOVE-->
             <h1> Josh's Coding Quiz</h1>
                 <p> Hi! This quiz was created so I could showcase how much I've learned so far as a webdeveloper, as well as to help others learn! </p>
-                <p> Try to answer all questions within the time limit. Correct answers earn you points, wrong answers only deduct time. Good luck!</p>
+                <p> Try to answer all questions within the time limit. Correct answers earn you points, wrong answers deduct time. Good luck!</p>
             <button id= "startbtn" class="btn"> Start Quiz</button>
             <button id="scorebtn" class="btn"> View Leaderboard &#127942</button>
             </div>
@@ -26,7 +26,7 @@
             <div class="quizContent remove"> <!-- Hide by default with .remove class, remove that class when start button is pressed -->
                 <div class="quizStats">
                     <div class="quizItem">
-                        <h3 id="timeLeft"> Time Remaining: </h3>
+                        <h3 id="timeRemaining"> Time Remaining: </h3>
                     </div>
                     <div class="quizItem">
                         <h3 id="score"> Score:</h3>
@@ -34,23 +34,23 @@
                     </div>
                 </div>
                 <div id="questionBox">
-                    <h2 id="question"> QUESTION HERE</h2>
+                    <h2 id="question"></h2>
                 </div>
                 <div class="questionOption" id="optionOne">
                     <p class="optionLetter"> A </p>
-                    <p class="optionText" data-number="1"> TEXT FOR CHOICE GOES HERE</p>
+                    <p class="optionText" id="optionTextOne" data-number="1"> </p>
                 </div>
                 <div class="questionOption" id="optionTwo">
                     <p class="optionLetter"> B </p>
-                    <p class="optionText" data-number="2"> TEXT FOR CHOICE GOES HERE</p>
+                    <p class="optionText" id="optionTextTwo" data-number="2"> </p>
                 </div>
                 <div class="questionOption" id="optionThree">
                     <p class="optionLetter"> C </p>
-                    <p class="optionText" data-number="3"> TEXT FOR CHOICE GOES HERE</p>
+                    <p class="optionText" id="optionTextThree" data-number="3"> </p>
                 </div>
                 <div class="questionOption" id="optionFour">
                     <p class="optionLetter"> D </p>
-                    <p class="optionText" data-number="4"> TEXT FOR CHOICE GOES HERE</p>
+                    <p class="optionText" id="optionTextFour" data-number="4"> </p>
                 </div>
             </div>
         </div>
@@ -69,7 +69,6 @@
 
 <!--Pseduo Code for Reference 
 1- HTML for site layout 
-1.5 OPTIONAL* - Try (for fun) to create 2 html files and link together, one for a "home page" the other for the "quiz" 
 2- Style pages with css (if needed, create 2 css files, one for home page one for quiz game)
 3 - Add logic using js 
 3.5 OPTIONAL* - Create second js file to store questions, saw something similar in a practice game I was researching on making and makes more sense than putting everyone in one js file
