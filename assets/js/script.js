@@ -10,18 +10,17 @@ var optionOne = document.querySelector('#optionTextOne');
 var optionTwo = document.querySelector('#optionTextTwo');
 var optionThree = document.querySelector('#optionTextThree');
 var optionFour = document.querySelector('#optionTextFour');
-var questionOption = document.querySelector('.questionOption')
+var questionOption = document.querySelector('.questionOption');
+var questionHold = document.querySelector('#questionHold')
 var currentQuestion = {};
 var availableQuestions = [];
-var SCORE_POINTS = 10
-var score = 0
+var SCORE_POINTS = 10;
+var score = 0;
+var scoreValue = document.querySelector('#scoreValue');
 
 
 var i = 0; //testing something - not working - NEVERMIND FIGURED IT OUT (not entirely sure how this worked, a tutor helped explain what was going on but sort of lost on this - will look into it)
 
-
-
-//
 var questionSet = [
     {
         question:"Which HTML element should contain the JavaScript?",
@@ -83,15 +82,17 @@ startScreen.classList.add("remove");
 startContent.classList.add("remove");
 quizContent.classList.remove("remove");
 score = 0 ;
+window.alert("Hi! Just a heads up, we are currently experiencing a bug regarding answer selection. Please ensure you click within the white box to select your answer. Unfortunately we weren't able to sort this bug out in time, but we're working on it!")
 time();
 questionFill();
+scoreFill();
 });
 
 // Timer function 
 function time() {
     timeValue = setInterval(function () {
        timeLeft--;
-       timeRemaining.textContent = "Time Remaining: "+ timeLeft + " seconds left!";
+       timeRemaining.textContent = "Time Remaining: "+ timeLeft + " seconds";
    
        if (timeLeft === 0) { //need to change this slightly I believe, not working exactly how it should
        clearInterval(timeValue);
@@ -99,6 +100,16 @@ function time() {
     }
     }, 1000)
    };
+
+//Functions for increasing and updating score
+function scoreFill() {
+    scoreValue.innerHTML = score + " points!";
+};
+
+//.foor rounds down here to remove decimals, the score metric is very arbitrary I was just testing random score systems and this one stuck
+function increaseScore() {
+    score = Math.floor(score + (timeLeft / 3));  
+} ;
 
 
 // Function to set questions - wanted to try to randomize order, but the method I tried kept breaking the code - will come back to it if I have time    
@@ -114,27 +125,30 @@ function questionFill() {
     } 
 }
 
-questionOption.addEventListener("click", function(event) {
+//On click event for answer check
+questionHold.addEventListener("click", function(event) {
     var event = event.target;
     answerCheck(event.textContent.trim());
 });
 
+//Answer check - moves forward and adds to score if correct, deducts time if not 
 function answerCheck(event) {
     if (i >= questionSet.length) {
         clearInterval(timeValue);
         gameEnd();
     } else {
         if (event === questionSet[i].answer) {
-        score = timeLeft;
-        i++
+            window.alert("Correct!");
+            increaseScore();
+            i++;
         } else {
-            timeLeft -=15;
-            i++
+            window.alert("Incorrect! Time deducted");
+            timeLeft -=10;
         }
+        scoreFill();
         questionFill();
     }
 }
 
 
-//function on question answer select 
-// function answer()
+

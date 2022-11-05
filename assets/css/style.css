@@ -148,6 +148,14 @@ bottom: 30%; /* Might need to change these values to match the styled version of
 }
 
 .optionText {
-    padding: 0.5rem;
+    padding: .2rem;
     font-size: 2rem;
+    background-color: rgb(246, 233, 233);
+    width:100%;
+    height:100%;
+    border-radius: 12px;
+}
+
+.optionText:hover{
+    color: navy;
 }
