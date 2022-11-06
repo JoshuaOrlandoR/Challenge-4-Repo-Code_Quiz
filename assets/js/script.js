@@ -92,7 +92,7 @@ questionFill();
 scoreFill();
 });
 
-//Click View Leaderboard button to view the chart - unfortunately at the current time this is empty as I could not figure out how to access stored storage items but I plan on coming back to this 
+//Click View Leaderboard button to view the chart 
 quizScore.addEventListener("click", function(event) {
     startScreen.classList.add("remove");
     startContent.classList.add("remove");
