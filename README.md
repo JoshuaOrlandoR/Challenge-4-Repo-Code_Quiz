@@ -5,8 +5,8 @@ This week, I created a quiz with logic through Javascript!
 ## Description
 In this assignment, I wrote the necessary code to create a functional quiz. 
 Through my practice with JavaScript as well as using API's to help manipulate data, I was able to create a quiz that kept track of score and time.
-One major requirement however, which as storing player information and score on a leaderboard, was NOT successfully completed. I do plan on coming back to this
-project at a later date to resubmit the assignment. 
+Upon completing the quiz, users can log their score with 3 initials, which will then be placed into the leaderboard. The newest 5 entries will be kept here.
+The only non-functional part of the code is the leaderboard button on the landing page, as it only shows a blank table. 
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Installation
@@ -37,7 +37,11 @@ Enter Info + Score result screen
 
 <br>
 
-Table 
+Table with user info from local storage
+
+<br>
+
+Leaderboard button blank table
 
 <br>
 
