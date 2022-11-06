@@ -10,7 +10,7 @@ The only non-functional part of the code is the leaderboard button on the landin
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Installation
-To utilize the site, refer to the live link here: [Hosted Site](LAUNCH SITE AND LINK)
+To utilize the site, refer to the live link here: [Hosted Site](https://joshuaorlandor.github.io/Challenge-4-Repo-Code_Quiz/))
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 
