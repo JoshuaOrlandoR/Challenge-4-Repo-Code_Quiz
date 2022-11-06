@@ -27,12 +27,6 @@ Landing Screen
 
 <br>
 
-Users must click within the white part of the option box
-
-![image](https://user-images.githubusercontent.com/114437149/200186260-4e13fd22-baaf-4ea5-8a3d-111da81edefe.png)
-
-<br>
-
 Initial Warning of the answer selection bug 
 
 ![image](https://user-images.githubusercontent.com/114437149/200185979-b3a21412-18c4-4a3f-b619-7caad0573fa2.png)
@@ -42,6 +36,12 @@ Initial Warning of the answer selection bug
 Quiz Question with Timer
 
 ![image](https://user-images.githubusercontent.com/114437149/200186024-9fcc7baf-b814-4729-8245-6fde16f48f95.png)
+
+<br>
+
+Users must click within the white part of the option box
+
+![image](https://user-images.githubusercontent.com/114437149/200186260-4e13fd22-baaf-4ea5-8a3d-111da81edefe.png)
 
 <br>
 
