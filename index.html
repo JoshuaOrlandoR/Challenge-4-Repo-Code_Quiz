@@ -57,16 +57,62 @@
             </div>
         </div>
         
-        <!--End Screen MIGHT REMOVE THIS AND JUST SEND PLAYERS BACK TO THE HOME SCREEN-->
-        <div class="endScreen ">
-
-        </div>
         <!--Enter Name + Score keeper section-->
-        <div>
-
+        <div class="scoreEntry">
+            <div class="scoreEntryContent remove">
+                <h1>Game Over!</h1>
+                <p>You scored <span id="scoreNumber"></span></p>
+                <p> Please enter your initials to add your score to the leaderboard</p>
+                <form>
+                    <input id="initials" type="text" maxlength="3">
+                    <br>
+                    <button id="submitBtn" class="btn"> Submit</button>
+                </form>
+            </div>
         </div>
 
         <!--Leaderboard section-->
+        <div id="leaderboardPage">
+        <table id="leaderboardTable" class="remove">
+
+                <tr id="catagoryTitle">
+                    <th>Player Initials</th>
+                    <th>Player Score</th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </table>
+            <button id= "homebtn" class="btn remove"> Home </button>
+        </div>
+        
+       <!-- <div id="leaderboardScreen">
+            <div class =leaderboardArea>
+                <div id="leaderboardTitle"> 
+                    <h3 id="leaderboardTitleText">Leaderboard</h3>
+                </div>
+                <div id="playerInfo">
+                </div> 
+            </div>
+
+            </div> -->
 
     <script src="./assets/js/script.js"> </script>
     </body>
@@ -77,6 +123,5 @@
 1- HTML for site layout 
 2- Style pages with css (if needed, create 2 css files, one for home page one for quiz game)
 3 - Add logic using js 
-3.5 OPTIONAL* - Create second js file to store questions, saw something similar in a practice game I was researching on making and makes more sense than putting everyone in one js file
 4 - Ensure timer works with penalty
 5 - Ensure User history/scoreboard works to store name and score -->

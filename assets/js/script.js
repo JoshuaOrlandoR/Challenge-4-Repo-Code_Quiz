@@ -5,7 +5,7 @@ var startScreen = document.querySelector('.startscreen');
 var startContent = document.querySelector('.startcontent');
 var quizContent = document.querySelector('.quizContent');
 var timeRemaining = document.querySelector('#timeRemaining');
-var timeLeft = 120
+var timeLeft = 10
 var optionOne = document.querySelector('#optionTextOne');
 var optionTwo = document.querySelector('#optionTextTwo');
 var optionThree = document.querySelector('#optionTextThree');
@@ -14,9 +14,18 @@ var questionOption = document.querySelector('.questionOption');
 var questionHold = document.querySelector('#questionHold')
 var currentQuestion = {};
 var availableQuestions = [];
+var leaderboardList = [];
 var SCORE_POINTS = 10;
 var score = 0;
 var scoreValue = document.querySelector('#scoreValue');
+var scoreEntry = document.querySelector('.scoreEntryContent');
+var scoreSpan = document.querySelector('#scoreNumber');
+/*var initialField = document.querySelector('#initials'); */
+var submit = document.querySelector('#submitBtn');
+var leaderboardTable = document.querySelector('#leaderboardTable');
+var homebtn = document.querySelector('#homebtn');
+
+
 
 
 var i = 0; //testing something - not working - NEVERMIND FIGURED IT OUT (not entirely sure how this worked, a tutor helped explain what was going on but sort of lost on this - will look into it)
@@ -73,22 +82,28 @@ var questionSet = [
     },
 ];
 
-
-
-
-// Click start button to go to quiz 
+//Click start button to go to quiz 
 quizStart.addEventListener("click", function(event) {
 startScreen.classList.add("remove");
 startContent.classList.add("remove");
 quizContent.classList.remove("remove");
 score = 0 ;
-window.alert("Hi! Just a heads up, we are currently experiencing a bug regarding answer selection. Please ensure you click within the white box to select your answer. Unfortunately we weren't able to sort this bug out in time, but we're working on it!")
+window.alert("Hi! Just a heads up, there's currently a bug regarding answer selection. Please ensure you click within the white box to select your answer. Unfortunately I wasn't able to sort this bug out in time, but I'm working on it!")
 time();
 questionFill();
 scoreFill();
 });
 
-// Timer function 
+//Click View Leaderboard button to view the chart - unfortunately at the current time this is empty as I could not figure out how to access stored storage items but I plan on coming back to this 
+quizScore.addEventListener("click", function(event) {
+    startScreen.classList.add("remove");
+    startContent.classList.add("remove");
+    leaderboardTable.classList.remove("remove");
+    homebtn.classList.remove("remove");
+})
+
+
+//Timer function 
 function time() {
     timeValue = setInterval(function () {
        timeLeft--;
@@ -105,12 +120,10 @@ function time() {
 function scoreFill() {
     scoreValue.innerHTML = score + " points!";
 };
-
 //.foor rounds down here to remove decimals, the score metric is very arbitrary I was just testing random score systems and this one stuck
 function increaseScore() {
     score = Math.floor(score + (timeLeft / 3));  
 } ;
-
 
 // Function to set questions - wanted to try to randomize order, but the method I tried kept breaking the code - will come back to it if I have time    
 function questionFill() {
@@ -143,12 +156,57 @@ function answerCheck(event) {
             i++;
         } else {
             window.alert("Incorrect! Time deducted");
-            timeLeft -=10;
+            timeLeft -=6;
         }
+        timeZero();
         scoreFill();
         questionFill();
     }
 }
 
+function timeZero() {
+    if (timeLeft < 1)
+    gameEnd();
+}
 
 
+//Once quiz ends
+function gameEnd() {
+    window.alert("Thanks for playing! I hope this tool helped you broaden and solidify some of your web dev knowledge!");
+    clearInterval(timeValue);
+    quizContent.classList.add("remove");
+    scoreEntry.classList.remove("remove");
+    spanFill();
+}
+
+//Submiting score to leaderboard
+function spanFill() {
+    scoreSpan.innerHTML = score + " points!"
+    };
+    
+//On click progress to high score screen
+submit.addEventListener("click", function(event) {
+    event.preventDefault();
+    scoreEntry.classList.add("remove");
+    leaderboardTable.classList.remove("remove");
+    homebtn.classList.remove("remove");
+});
+
+//Reloads page on click
+homebtn.addEventListener("click", function(event){
+    window.location.reload();
+    });
+  
+
+    /* storeScore(); - part of attempting to store and get the score from local storage, did not work unfortunately */
+
+ /* function saveHighScore() {
+    const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+    var nameScore = {
+        initialName : initialField.value,
+        score : score
+    };
+    leaderboardList.push(nameScore);
+}
+var highScore = JSON.parse(localStorage.getItem("highScores")) || [];
+*/
