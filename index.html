@@ -2,11 +2,114 @@
 <html lang="en">
 
     <head>
-        <title> Placeholder name quiz</title>
+        <title> Josh's Javascript Quiz</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-       <!-- <link rel="stylesheet" href="./assets/css/reset.css"/> -->
+        <link rel="stylesheet" href="./assets/css/reset.css"/>
         <link rel="stylesheet" href="assets/css/style.css"/>
     </head>
-    <body>
 
+    <body>
+        <!--This will be the initial screen that users see, on startbtn press, will hide this section and show questions -->
+        <div class= "startscreen"> 
+            <div class = "startcontent"> <!--REMOVE IS JUST HERE BY DEFAULT SO I CAN STYLE THE OTHER SECTIONS, REMEMBER TO REMOVE-->
+            <h1> Josh's Coding Quiz</h1>
+                <p> Hi! This quiz was created so I could showcase how much I've learned so far as a webdeveloper, as well as to help others learn! </p>
+                <p> Try to answer all questions within the time limit. Correct answers earn you points, wrong answers deduct X seconds. You will be notified by an alert if you got the question right or wrong. Good luck!</p>
+            <button id= "startbtn" class="btn"> Start Quiz</button>
+            <button id="scorebtn" class="btn"> View Leaderboard &#127942</button>
+            </div>
+        </div>
+
+        <!--Questions/Quiz section-->
+        <div class="quizScreen">  
+            <div class="quizContent remove"> <!-- Hide by default with .remove class, remove that class when start button is pressed -->
+                <div class="quizStats">
+                    <div class="quizItem">
+                        <h3 id="timeRemaining"> Time Remaining: </h3>
+                    </div>
+                    <div class="quizItem">
+                        <h3 id="score"> Score:</h3>
+                        <h3 id="scoreValue"> </h3>
+                    </div>
+                </div>
+                <div id="questionBox">
+                    <h2 id="question"></h2>
+                </div>
+                <div id="questionHold">
+                    <div class="questionOption" id="optionOne">
+                        <p class="optionLetter"> A </p>
+                        <p class="optionText" id="optionTextOne" data-number="1"> </p>
+                    </div>
+                    <div class="questionOption" id="optionTwo">
+                        <p class="optionLetter"> B </p>
+                        <p class="optionText" id="optionTextTwo" data-number="2"> </p>
+                    </div>
+                    <div class="questionOption" id="optionThree">
+                        <p class="optionLetter"> C </p>
+                        <p class="optionText" id="optionTextThree" data-number="3"> </p>
+                    </div>
+                    <div class="questionOption" id="optionFour">
+                        <p class="optionLetter"> D </p>
+                        <p class="optionText" id="optionTextFour" data-number="4"> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!--Enter Name + Score keeper section-->
+        <div class="scoreEntry">
+            <div class="scoreEntryContent remove">
+                <h1>Game Over!</h1>
+                <p>You scored <span id="scoreNumber"></span></p>
+                <p> Please enter your initials to add your score to the leaderboard</p>
+                <form id="score-form">
+                    <input id="initials" type="text" maxlength="3">
+                    <br>
+                    <button type="submit" id="submitBtn" class="btn"> Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <!--Leaderboard section-->
+        <div id="leaderboardPage">
+        <table id="leaderboardTable" class="remove">
+
+                <tr id="catagoryTitle">
+                    <th>Player Initials</th>
+                    <th>Player Score</th>
+                </tr>
+                <tr>
+                    <th id="name1"></th>
+                    <th id="score1"></th>
+                </tr>
+                <tr>
+                    <th id="name2"></th>
+                    <th id="score2"></th>
+                </tr>
+                <tr>
+                    <th id="name3"></th>
+                    <th id="score3"></th>
+                </tr>
+                <tr>
+                    <th id="name4"></th>
+                    <th id="score4"></th>
+                </tr>
+                <tr>
+                    <th id="name5"></th>
+                    <th id="score5"></th>
+                </tr>
+            </table>
+            <button id= "homebtn" class="btn remove"> Home </button>
+        </div>
+    <script src="./assets/js/script.js"> </script>
+    </body>
+</html>
+
+
+<!--Pseduo Code for Reference 
+1- HTML for site layout 
+2- Style pages with css (if needed, create 2 css files, one for home page one for quiz game)
+3 - Add logic using js 
+4 - Ensure timer works with penalty
+5 - Ensure User history/scoreboard works to store name and score -->
