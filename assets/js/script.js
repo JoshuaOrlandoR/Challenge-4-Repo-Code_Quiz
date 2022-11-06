@@ -5,7 +5,7 @@ var startScreen = document.querySelector('.startscreen');
 var startContent = document.querySelector('.startcontent');
 var quizContent = document.querySelector('.quizContent');
 var timeRemaining = document.querySelector('#timeRemaining');
-var timeLeft = 10
+var timeLeft = 60
 var optionOne = document.querySelector('#optionTextOne');
 var optionTwo = document.querySelector('#optionTextTwo');
 var optionThree = document.querySelector('#optionTextThree');
@@ -20,17 +20,13 @@ var score = 0;
 var scoreValue = document.querySelector('#scoreValue');
 var scoreEntry = document.querySelector('.scoreEntryContent');
 var scoreSpan = document.querySelector('#scoreNumber');
-var initialField = document.querySelector('#initials');
 var submit = document.querySelector('#submitBtn');
 var leaderboardTable = document.querySelector('#leaderboardTable');
 var homebtn = document.querySelector('#homebtn');
-const form = document.getElementById('form');
-const userName = initialField.value
+var form = document.getElementById('score-form')
 
 
-//FIXED MOST ISSUES WITH A TEST FILE - UPDATE IN MORNING 
-
-var i = 0; //testing something - not working - NEVERMIND FIGURED IT OUT (not entirely sure how this worked, a tutor helped explain what was going on but sort of lost on this - will look into it)
+var i = 0; 
 
 var questionSet = [
     {
@@ -104,12 +100,12 @@ quizScore.addEventListener("click", function(event) {
     homebtn.classList.remove("remove");
 })
 
-
 //Timer function 
 function time() {
     timeValue = setInterval(function () {
        timeLeft--;
-       timeRemaining.textContent = "Time Remaining: "+ timeLeft + " seconds";
+       //timeRemaining.textContent = "Time Remaining: "+ timeLeft + " seconds";
+       timeRemaining.textContent = `Time Remaining: ${timeLeft} seconds`
    
        if (timeLeft === 0) { //need to change this slightly I believe, not working exactly how it should
        clearInterval(timeValue);
@@ -118,10 +114,11 @@ function time() {
     }, 1000)
    };
 
-//Functions for increasing and updating score
-function scoreFill() {
+//Functions for increasing and updating score - tested notation 
+function scoreFill(x) {
     scoreValue.innerHTML = score + " points!";
 };
+
 //.foor rounds down here to remove decimals, the score metric is very arbitrary I was just testing random score systems and this one stuck
 function increaseScore() {
     score = Math.floor(score + (timeLeft / 3));  
@@ -171,7 +168,6 @@ function timeZero() {
     gameEnd();
 }
 
-
 //Once quiz ends
 function gameEnd() {
     window.alert("Thanks for playing! I hope this tool helped you broaden and solidify some of your web dev knowledge!");
@@ -187,42 +183,53 @@ function spanFill() {
     };
     
 //On click progress to high score screen
-form.addEventListener("submit", function(event) {
+submit.addEventListener("submit", function(event) {
     event.preventDefault();
     scoreEntry.classList.add("remove");
     leaderboardTable.classList.remove("remove");
     homebtn.classList.remove("remove");
-
-    if (! localStorage.getItem('highscore')){
-        localStorage.setItem('highscore', [])};
-    const test = localStorage.getItem('highscore').concat([{
-        'name' : userName,
-        'score': score
-    }])
-    for (const x of test) { 
-        console.log(`name: ${x.name} score ${x.score}`) }
 });
-    console.log("test",test);
-    localStorage.setItem('highscore',test)
-    console.log(localStorage.getItem('highscore'));
-   
 
 //Reloads page on click
 homebtn.addEventListener("click", function(event){
     window.location.reload();
     });
   
+//On sumbit button click
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    scoreEntry.classList.add("remove");
+    leaderboardTable.classList.remove("remove");
+    homebtn.classList.remove("remove");
+
+//Steps to manipulate local storage array
+    const username = document.getElementById('initials').value
+    
+    const existingScores = JSON.parse(localStorage.getItem('highscore') || '[]')
+    const scoreObj = {username, score}
+    existingScores.push(scoreObj)
+
+    localStorage.setItem('highscore',  JSON.stringify(existingScores))
+
+    displayHighScores(existingScores)
+    })
 
 
-    /* storeScore(); - part of attempting to store and get the score from local storage, did not work unfortunately */
+//Local storage item to table
+function displayHighScores(existingScores) {
+    console.log('gets here')
 
- /* function saveHighScore() {
-    const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-    var nameScore = {
-        initialName : initialField.value,
-        score : score
-    };
-    leaderboardList.push(nameScore);
+// Did .reverse so newest item would be at the top 
+    const reversedArray = existingScores.reverse()
+    for (let ele = 1; ele < 6; ele++) {
+        let nameStr = `name${ele}`  //was taught this notation
+        let scoreStr = `score${ele}`
+        console.log(nameStr, scoreStr)
+
+        let nameHeader = document.getElementById(nameStr)
+        let scoreHeader = document.getElementById(scoreStr)
+        nameHeader.innerHTML = reversedArray[ele-1].username
+        scoreHeader.innerHTML = reversedArray[ele-1].score
+    }
 }
-var highScore = JSON.parse(localStorage.getItem("highScores")) || [];
-*/
+

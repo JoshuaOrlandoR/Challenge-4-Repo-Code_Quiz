@@ -63,10 +63,10 @@
                 <h1>Game Over!</h1>
                 <p>You scored <span id="scoreNumber"></span></p>
                 <p> Please enter your initials to add your score to the leaderboard</p>
-                <form id="form">
+                <form id="score-form">
                     <input id="initials" type="text" maxlength="3">
                     <br>
-                    <button id="submitBtn" type="submit" class="btn"> Submit</button>
+                    <button type="submit" id="submitBtn" class="btn"> Submit</button>
                 </form>
             </div>
         </div>
@@ -80,29 +80,39 @@
                     <th>Player Score</th>
                 </tr>
                 <tr>
-                    <th></th>
-                    <th></th>
+                    <th id="name1"></th>
+                    <th id="score1"></th>
                 </tr>
                 <tr>
-                    <th></th>
-                    <th></th>
+                    <th id="name2"></th>
+                    <th id="score2"></th>
                 </tr>
                 <tr>
-                    <th></th>
-                    <th></th>
+                    <th id="name3"></th>
+                    <th id="score3"></th>
                 </tr>
                 <tr>
-                    <th></th>
-                    <th></th>
+                    <th id="name4"></th>
+                    <th id="score4"></th>
                 </tr>
                 <tr>
-                    <th></th>
-                    <th></th>
+                    <th id="name5"></th>
+                    <th id="score5"></th>
                 </tr>
             </table>
             <button id= "homebtn" class="btn remove"> Home </button>
         </div>
         
+       <!-- <div id="leaderboardScreen">
+            <div class =leaderboardArea>
+                <div id="leaderboardTitle"> 
+                    <h3 id="leaderboardTitleText">Leaderboard</h3>
+                </div>
+                <div id="playerInfo">
+                </div> 
+            </div>
+
+            </div> -->
 
     <script src="./assets/js/script.js"> </script>
     </body>
