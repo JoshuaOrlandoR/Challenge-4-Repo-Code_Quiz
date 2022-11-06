@@ -5,7 +5,7 @@ var startScreen = document.querySelector('.startscreen');
 var startContent = document.querySelector('.startcontent');
 var quizContent = document.querySelector('.quizContent');
 var timeRemaining = document.querySelector('#timeRemaining');
-var timeLeft = 60
+var timeLeft = 10
 var optionOne = document.querySelector('#optionTextOne');
 var optionTwo = document.querySelector('#optionTextTwo');
 var optionThree = document.querySelector('#optionTextThree');
@@ -20,13 +20,15 @@ var score = 0;
 var scoreValue = document.querySelector('#scoreValue');
 var scoreEntry = document.querySelector('.scoreEntryContent');
 var scoreSpan = document.querySelector('#scoreNumber');
-/*var initialField = document.querySelector('#initials'); */
+var initialField = document.querySelector('#initials');
 var submit = document.querySelector('#submitBtn');
 var leaderboardTable = document.querySelector('#leaderboardTable');
 var homebtn = document.querySelector('#homebtn');
+const form = document.getElementById('form');
+const userName = initialField.value
 
 
-
+//FIXED MOST ISSUES WITH A TEST FILE - UPDATE IN MORNING 
 
 var i = 0; //testing something - not working - NEVERMIND FIGURED IT OUT (not entirely sure how this worked, a tutor helped explain what was going on but sort of lost on this - will look into it)
 
@@ -185,18 +187,32 @@ function spanFill() {
     };
     
 //On click progress to high score screen
-submit.addEventListener("click", function(event) {
+form.addEventListener("submit", function(event) {
     event.preventDefault();
     scoreEntry.classList.add("remove");
     leaderboardTable.classList.remove("remove");
     homebtn.classList.remove("remove");
+
+    if (! localStorage.getItem('highscore')){
+        localStorage.setItem('highscore', [])};
+    const test = localStorage.getItem('highscore').concat([{
+        'name' : userName,
+        'score': score
+    }])
+    for (const x of test) { 
+        console.log(`name: ${x.name} score ${x.score}`) }
 });
+    console.log("test",test);
+    localStorage.setItem('highscore',test)
+    console.log(localStorage.getItem('highscore'));
+   
 
 //Reloads page on click
 homebtn.addEventListener("click", function(event){
     window.location.reload();
     });
   
+
 
     /* storeScore(); - part of attempting to store and get the score from local storage, did not work unfortunately */
 
